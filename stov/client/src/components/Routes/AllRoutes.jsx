@@ -3,7 +3,7 @@ import { Routes,Route } from 'react-router-dom'
 import Home from '../Home/Home'
 import Auth from '../Auth/Auth'
 
-const Routes_ = () => {
+const AllRoutes = () => {
   return (
     <div>
       <div>
@@ -16,4 +16,4 @@ const Routes_ = () => {
   )
 }
 
-export default Routes_
+export default AllRoutes
