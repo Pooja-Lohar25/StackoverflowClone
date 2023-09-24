@@ -22,11 +22,18 @@ const Navbar = () => {
             <img src={search} alt='search' width ='18'  className='search-icon'></img>
         </form>
         {
+        
             User === null ? 
             <Link to='/Auth' className='nav-item nav-links'>Login</Link> :
             <>
-                <Link to='/' className=''><Avatar>P</Avatar></Link> //first letter of user's name
-                <Button>Logout</Button>
+                {/* first letter of user's name*/}
+                <Link to='/User' className='nav-item'><Avatar 
+                  backgroundColor='#009dff'
+                  px = '15px'
+                  py='7px'
+                  color= 'white'
+                  borderRadius = '50%'> P </Avatar></Link> 
+                  <button className='nav-item nav-links'>Logout</button>
             </>
         }
       </div>
