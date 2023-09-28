@@ -1,9 +1,18 @@
 import React from 'react'
+import HomeMainbar from "./HomeMainbar"
+import LeftSidebar from '../LeftSidebar/LeftSidebar'
+import RightSidebar from '../RightSidebar/RightSidebar'
+import '../../App.css'
+
 
 const Home = () => {
   return (
-    <div>
-      <h1 style={{padding:'200px'}}>home page</h1>
+    <div className='home-container-1'>
+      <LeftSidebar/>
+      <div className='home-container-2'>
+          <HomeMainbar/>
+          <RightSidebar/>
+      </div>
     </div>
   )
 }

@@ -3,14 +3,13 @@ import {Link} from 'react-router-dom'
 import logo from '../../assets/logo.png'
 import search from '../../assets/search.svg'
 import Avatar from '../../components/Avatar/Avatar'
-import Button from '../../components/Button/Button'
 import './Navbar.css'
 
 const Navbar = () => {
     const User = null
 
   return (
-    <nav>
+    <nav className='main-nav'>
       <div className='navbar'>
         <Link to='/' className='nav-item nav-logo'>
             <img src={logo} alt = 'logo' width='100'></img> </Link>
