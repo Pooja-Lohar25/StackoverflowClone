@@ -5,7 +5,8 @@ import './RightSidebar.css'
 const WidgetTags = () => {
 
   const tags = [
-    'c','c++','javascript','java','python','html','jquery','react','node','php','c#','css','android'
+    'c','c++','javascript','java','python','android','jquery','react','node',
+    'php','c#','css','html','mysql','sql','python-3','ruby-on-rails'
   ]
 
   return (
@@ -15,7 +16,7 @@ const WidgetTags = () => {
         <div className='widget-tags-items'>
           {
             tags.map(element => (
-              <p>{element}</p>
+              <p key={element}>{element}</p>
               ))   
             }
         </div>

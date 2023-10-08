@@ -43,6 +43,11 @@
     font-size: 20px;
 }
 
+.widget-tags-items{
+    display: flex;
+    flex-flow: wrap;
+}
+
 .widget-tags-items > p{
     font-size: 12px;
     background-color: #e1ecf4;
@@ -54,8 +59,10 @@
     border-radius: 5px;
     display: flex;
     cursor: pointer;
+    margin-left: 2px;
+    margin-right: 2px;
 }
 
 .widget-tags-items > p:hover{ 
-    background-color: #afc9dc95;
+    background-color: #afc9dc81;
 }

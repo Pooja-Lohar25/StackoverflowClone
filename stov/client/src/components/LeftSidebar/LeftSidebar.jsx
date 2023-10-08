@@ -13,11 +13,11 @@ const LeftSidebar = () => {
         </NavLink>
         <div className='side-nav-div'>
           <div><p>PUBLIC</p></div>
-          <NavLink to='/Questions' className='side-nav-links' activeClassName='active' >
+          <NavLink to='/questions' className='side-nav-links' activeClassName='active' >
               <p><img src={Globe} alt='Globe'></img></p>
               <p style={{paddingLeft: '5px'}}>Questions</p>
           </NavLink>
-          <NavLink to='/Tags' className='side-nav-links' activeClassName ='active' style={{paddingLeft:'40px'}}>
+          <NavLink to='/tags' className='side-nav-links' activeClassName ='active' style={{paddingLeft:'40px'}}>
             <p>Tags</p>
           </NavLink>
           <NavLink to='/users' className='side-nav-links' activeClassName ='active' style={{paddingLeft:'40px'}}>
