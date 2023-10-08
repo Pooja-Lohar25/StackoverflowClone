@@ -37,3 +37,25 @@
 
 }
 
+
+
+.widget-tags > p{
+    font-size: 20px;
+}
+
+.widget-tags-items > p{
+    font-size: 12px;
+    background-color: #e1ecf4;
+    color: #497fa5;
+    width: fit-content;
+    min-height: 20px;
+    padding: 0 5px 0 5px;
+    border: thin #e1ecf4;
+    border-radius: 5px;
+    display: flex;
+    cursor: pointer;
+}
+
+.widget-tags-items > p:hover{ 
+    background-color: #afc9dc95;
+}

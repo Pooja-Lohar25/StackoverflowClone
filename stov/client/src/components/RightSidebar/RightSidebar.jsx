@@ -8,7 +8,6 @@ const RightSidebar = () => {
   return (
     // a tag used to specify less important content
     <aside className='right-sidebar'>
-      
       <Widget/>
       <WidgetTags/>
     </aside>
