@@ -2,7 +2,7 @@ import React from 'react'
 
 const HomeMainbar = () => {
   return (
-    <div>
+    <div style={{border:"solid"}}>
       
     </div>
   )

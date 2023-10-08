@@ -5,7 +5,7 @@
     width: 164px;
     transition: box-shadow ease-in-out 0.1s, transform ease-in-out 0.1s;
     box-sizing: border-box;
-    font-size: 13px;
+    font-size: 15px;
 }
 
 .side-nav{
@@ -21,7 +21,7 @@
 }
 
 .side-nav-div div{
-    padding-left: 10px;
+    padding-left: 5px;
 }
 
 .side-nav-links{
@@ -31,8 +31,14 @@
     align-items: center;
     justify-content: flex-start;
     transition : 0.2s;
+    padding-left:5px;
+    height: 30px;
 }
 
+.side-nav-links img{
+    height: 14px;
+    opacity: 0.6;
+}
 .side-nav-links:hover{
     color: black;
 }
