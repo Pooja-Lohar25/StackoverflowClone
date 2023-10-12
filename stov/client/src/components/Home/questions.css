@@ -1,0 +1,91 @@
+p{
+    font-size: 13px;
+}
+
+
+.questions-container{
+    border-top: solid  1px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    margin:0;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+.votes-ans{
+    width: 20%;
+    margin-right: 5px;
+}
+
+.votes-ans p{
+    text-align: right;
+    margin: 0;
+    padding-right: 5px;
+    color: grey;
+    
+}
+
+p.votes{
+    color: black;
+}
+
+.quest-details{
+    width: 100%;
+}
+
+.quest-title{
+    text-decoration: none;
+    color: #0e72b9;
+    margin-left: 7px;
+    font-size: 18px;
+}
+.quest-desc{
+    margin: 5px 0 0 0;
+    padding-left: 7px;
+    font-size: 14px;
+}
+
+.quest-title:hover{
+    color: #1e8cdb;
+}
+
+.tag-time{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.tags{
+    display: flex;
+    margin: 5px;
+}
+
+.tags > p{
+    font-size: 12px;
+    background-color: #e1ecf4;
+    color: #497fa5;
+    width: fit-content;
+    min-height: 20px;
+    padding: 1px 5px 1px 5px;
+    border: thin #e1ecf4;
+    border-radius: 5px;
+    display: flex;
+    cursor: pointer;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.tags > p:hover{ 
+    background-color: #afc9dc81;
+}
+
+.time{
+    color: grey;
+}
+.usr{
+    text-decoration: none;
+    color: #1174bb;
+}
