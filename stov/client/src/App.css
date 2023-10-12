@@ -1,3 +1,7 @@
+body{
+  background-color: whitesmoke;
+}
+
 .home-container-1{
   min-height: 100vh;
   max-width: 100%;
