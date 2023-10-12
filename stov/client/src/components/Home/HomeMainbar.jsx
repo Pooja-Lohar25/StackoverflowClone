@@ -95,23 +95,14 @@ const HomeMainbar = () => {
       postedBy:"john48509",
       askedOn:"sept 3 2023",
     },
-    {
-      id:2,
-      votes:3,
-      noOfAns: 0,
-      questionTitle:"what is a class",
-      questionBody:"meaning and uses",
-      questionTags:["react","java","php","c++","node",'oops'],
-      postedBy:"john48509",
-      askedOn:"sept 3 2023",
-    },
+    
   ]
 
   const location = useLocation();
 
   return (
     <div className='home-mainbar'>
-      <div className='heading'> 
+      <div className='home-mainbar-heading'> 
         {
           location.pathname === '/' ? <p>Top Questions</p> : <p>All Questions</p>
         }
