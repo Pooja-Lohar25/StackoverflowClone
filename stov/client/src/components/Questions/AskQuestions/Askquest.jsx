@@ -6,7 +6,13 @@ import Body from './Body'
 import Tags from './Tags'
 
 const Askquest = () => {
+
+
+
   return (
+
+    
+    
     <div className='q-container'>
         <p className='heading'>Ask a public question</p>
         <Info/>

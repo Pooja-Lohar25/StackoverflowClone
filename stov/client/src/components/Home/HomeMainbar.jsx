@@ -1,6 +1,6 @@
 import React from 'react'
 import '../../App.css'
-import {Link, useLocation} from 'react-router-dom'
+import {Link, redirect, useLocation, useNavigate} from 'react-router-dom'
 import Questions from './Questions'
 
 const HomeMainbar = () => {
@@ -99,6 +99,20 @@ const HomeMainbar = () => {
   ]
 
   const location = useLocation();
+  const user = null
+
+  const navigate = useNavigate()
+
+  const redirect = ()=>{
+    if(user===null){
+      alert("login or signup to ask a question")
+      navigate('/Auth')
+    }
+    else{
+      navigate('/askquestion')
+    }
+  }
+
 
   return (
     <div className='home-mainbar'>
@@ -107,7 +121,7 @@ const HomeMainbar = () => {
           location.pathname === '/' ? <p>Top Questions</p> : <p>All Questions</p>
         }
         
-        <Link to='/askquestion' className='quest-btn'>Ask Question</Link>
+        <button onClick={redirect} className='quest-btn'>Ask Question</button>
       </div>
         {
             questionList === null ? 
