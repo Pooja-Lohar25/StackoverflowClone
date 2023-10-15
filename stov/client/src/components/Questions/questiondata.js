@@ -1,10 +1,4 @@
-import React from 'react'
-import '../../App.css'
-import {Link, redirect, useLocation, useNavigate} from 'react-router-dom'
-import Questions from './Questions'
-
-const HomeMainbar = () => {
-  var questionList = [
+var questionList = [
     {
       _id:1,
       votes:3,
@@ -29,7 +23,7 @@ const HomeMainbar = () => {
       _id:3,
       votes:2,
       noOfAns: 2,
-      questionTitle:"How to read raw json value when using NewtonsoftJson in controller",
+      questionTitle:"How to read raw json value when using NewtonsoftJson in controller ",
       questionBody:"I have several models with DateTime properties. These models are DTOs for accepting in my controller methods. What I am trying to do is to remove timezone if a client sends it. Example: class InputDto ...",
       questionTags:["c#",'json.net'],
       postedBy:"alice845906",
@@ -95,46 +89,6 @@ const HomeMainbar = () => {
       postedBy:"john48509",
       askedOn:"sept 3 2023",
     },
-    
-  ]
+]
 
-  const location = useLocation();
-  const user = null
-
-  const navigate = useNavigate()
-
-  const redirect = ()=>{
-    if(user===null){
-      alert("login or signup to ask a question")
-      navigate('/Auth')
-    }
-    else{
-      navigate('/askquestion')
-    }
-  }
-
-
-  return (
-    <div className='home-mainbar'>
-      <div className='home-mainbar-heading'> 
-        {
-          location.pathname === '/' ? <p>Top Questions</p> : <p>All Questions</p>
-        }
-        
-        <button onClick={redirect} className='quest-btn'>Ask Question</button>
-      </div>
-        {
-            questionList === null ? 
-            <h1>Loading...</h1> :
-            <>
-                <p className='q-len'>{questionList.length} Questions</p>
-                <Questions questionlist={questionList}/>
-            </>
-
-        }
-
-    </div>
-  )
-}
-
-export default HomeMainbar
+export default questionList

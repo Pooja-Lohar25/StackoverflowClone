@@ -10,7 +10,7 @@ const Ques = ({ quest }) => {
             <p>{quest.noOfAns} answers</p>
         </div>
         <div className="quest-details">
-            <Link to={`/questions/${quest.id}`} className="quest-title"> {quest.questionTitle} </Link>
+            <Link to={`/questions/${quest._id}`} className="quest-title"> {quest.questionTitle} </Link>
             <p className="quest-desc">{quest.questionBody}</p>
             <div className="tag-time">
                 <div className="tags">
