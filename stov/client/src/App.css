@@ -38,11 +38,13 @@ body{
 .quest-btn {
   padding: 7px 13px;
   border: solid 1px #009dff;
-  border-radius: 3px;
+  border-radius: 7px;
   background-color: #009dff;
   cursor: pointer;
   text-decoration: none;
   color: white;
+  height: 40px;
+  font-size: 13px;
 }
 
 .quest-btn:hover{
@@ -59,3 +61,4 @@ body{
   margin: 0;
   margin-bottom: 10px;
 }
+
