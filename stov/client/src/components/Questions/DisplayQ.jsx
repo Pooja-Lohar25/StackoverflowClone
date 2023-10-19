@@ -5,7 +5,6 @@ import QuestionBlock from './QuestionBlock'
 import { useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import questionList from './questiondata'
-import '../../App.css'
 import './displayQ.css'
 
 

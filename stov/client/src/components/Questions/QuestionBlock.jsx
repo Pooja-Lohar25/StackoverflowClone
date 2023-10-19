@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import {Link} from 'react-router-dom'
 import questionList from './questiondata'
+import DisplayAnswer from './DisplayAnswer'
 import up from '../../assets/caret-up.svg'
 import down from '../../assets/caret-down.svg'
 import './displayQ.css'
@@ -37,9 +39,21 @@ const QuestionBlock = ({ques}) => {
             </div>
         </div>
         <div className='post-by'>
-            <span>asked on : {question.askedOn}
+            <span>asked on {question.askedOn}
             </span><br/>
-            {question.postedBy}</div>
+            <Link to={`/User/${question.userId}`}>{question.postedBy}</Link>
+        </div>
+
+
+        {
+            question.noOfAns !==0 && (
+                <section className='answers-section'>
+                    <h3>{question.noOfAns} answers</h3>
+                    <DisplayAnswer qid={question._id}/>
+                </section>
+            )
+        }
+
         <p style={{'margin-left':'20px'}}>Your Answer</p>
         <form className='answer-block'>
             <textarea type="text"/> 

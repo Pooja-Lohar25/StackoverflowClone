@@ -2,7 +2,6 @@ import React from 'react'
 import HomeMainbar from "../Home/HomeMainbar"
 import LeftSidebar from '../LeftSidebar/LeftSidebar'
 import RightSidebar from '../RightSidebar/RightSidebar'
-import '../../App.css'
 
 
 const Questions = () => {
