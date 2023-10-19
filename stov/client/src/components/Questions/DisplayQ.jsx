@@ -1,6 +1,7 @@
 import React from 'react'
 import LeftSidebar from '../LeftSidebar/LeftSidebar'
 import RightSidebar from '../RightSidebar/RightSidebar'
+import QuestionBlock from './QuestionBlock'
 import { useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import questionList from './questiondata'
@@ -22,6 +23,8 @@ const DisplayQ = () => {
         navigate('/askquestion')
       }
     }
+
+    const question = questionList.filter(question => question._id===qid)[0]
   return (
     <div className='home-container-1' >
       <LeftSidebar/>
@@ -29,12 +32,15 @@ const DisplayQ = () => {
         <div className='question-bar'> 
             {
                 
-                questionList.filter(question => question._id==qid).map(question=>(
-                    <div className='question-title' key={question._id}>{question.questionTitle}</div>
-                    ))
+                <div className='question-title' key={question._id}>{question.questionTitle}</div>
+              
             }
             <button onClick={redirect} className='quest-btn'>Ask Question</button>
         </div>
+        <div className='question-info'>
+          <p> <span style={{color:"grey"}}>Asked : </span>{question.askedOn}</p>
+        </div>
+        <QuestionBlock ques = {qid}/>
         <RightSidebar/>
       </div>
     </div>

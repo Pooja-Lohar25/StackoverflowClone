@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 import logo from '../../assets/logo.png'
 import search from '../../assets/search.svg'
 import Avatar from '../../components/Avatar/Avatar'
-import './Navbar.css'
+import './navbar.css'
 import '../../App.css'
 
 const Navbar = () => {
