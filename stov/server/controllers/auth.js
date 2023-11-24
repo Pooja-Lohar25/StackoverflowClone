@@ -5,7 +5,7 @@ import users from '../models/auth.js'
 
  const signup = async (req,res)=>{
     const {name,email,password} = req.body
-    try{
+    try{                                            
         const isUser = await users.findOne({email})
         if(isUser){
             res.status(500).json({message:"user already exists"})
@@ -41,7 +41,7 @@ import users from '../models/auth.js'
 
 
     }catch(err){
-        res.status(500).json(error)
+        res.status(500).json(err)
     }
 
 }
