@@ -68,3 +68,8 @@
 .widget-tags-items > p:hover{ 
     background-color: #afc9dc81;
 }
+@media(max-width:335px){
+    .right-sidebar{
+        float:none;
+    }
+}

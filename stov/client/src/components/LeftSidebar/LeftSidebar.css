@@ -51,7 +51,7 @@
 }
 
 @media (max-width:700px){
-    .side-nav{
+    .left-sidebar{
         display: none;
     }
 }

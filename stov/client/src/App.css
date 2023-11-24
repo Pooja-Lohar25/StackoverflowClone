@@ -61,3 +61,21 @@ body{
   margin: 0;
   margin-bottom: 10px;
 }
+
+@media (max-width:700px){
+  .home-container-2{
+    display: block;
+    padding-right: 0;
+  }
+  .home-mainbar{
+    width: 100%;
+  }
+  .home-container-1{
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .quest-btn{
+    margin-right: 10px;
+  }
+  
+}

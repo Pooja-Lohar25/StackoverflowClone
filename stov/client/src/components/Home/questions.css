@@ -89,3 +89,9 @@ p.votes{
     text-decoration: none;
     color: #1174bb;
 }
+
+@media (max-width:700px){
+    .tag-time{
+        display: block;
+    }
+}
