@@ -82,6 +82,9 @@
     background-color: #d3e4eb;
 }
 
+
+
+
 @media (max-width:700px) {
     .nav-btn{
         display: none;
@@ -134,4 +137,12 @@
     .nav-links{
         margin-right: 12px;
     }
+    .navbar{
+        justify-content: left;
+    }
+    .avatar{
+        margin-left: 25%;
+    }
+
 }
+

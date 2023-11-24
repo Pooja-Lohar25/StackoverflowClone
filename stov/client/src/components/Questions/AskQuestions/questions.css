@@ -79,3 +79,17 @@ textarea{
     background-color: #0490e6;
 }
 
+@media (max-width:700px){
+    .q-container{
+        margin-left: 10px;
+    }
+    .info{
+        width: 80%;
+    }
+    ul{
+        margin-left: 0;
+    }
+    .container{
+        width: 80%;
+    }
+}

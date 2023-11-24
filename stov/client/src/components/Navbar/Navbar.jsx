@@ -9,7 +9,7 @@ import './navbar.css'
 import '../../App.css'
 
 const Navbar = () => {
-    const User = null
+    const User = "1"
     const openOptions = ()=>{
       document.getElementById("close-burger").style.display = 'block'
       document.getElementById("nav-burger-list").style.display = 'block'
@@ -42,7 +42,7 @@ const Navbar = () => {
             <Link to='/Auth' className='nav-item nav-links'>Login</Link> :
             <>
                 {/* first letter of user's name*/}
-                <Link to='/User' className='nav-item'><Avatar 
+                <Link to='/User' className='nav-item avatar'><Avatar 
                   backgroundColor='#009dff'
                   px = '15px'
                   py='7px'
