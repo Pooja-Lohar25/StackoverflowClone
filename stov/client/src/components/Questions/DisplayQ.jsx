@@ -6,10 +6,11 @@ import { useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import questionList from './questiondata'
 import './displayQ.css'
+import { useSelector } from 'react-redux'
 
 
 const DisplayQ = () => {
-    const user = null
+    const user = useSelector(state => state.currentUserReducer)
     const {qid}  = useParams() //use same variables as used in defining parameters for routes
     const navigate = useNavigate()
   

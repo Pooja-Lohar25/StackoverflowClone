@@ -1,5 +1,9 @@
 import React from 'react'
 import {Link, NavLink} from 'react-router-dom'
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import decode from 'jwt-decode'
 import logo from '../../assets/logo.png'
 import search from '../../assets/search.svg'
 import bars from '../../assets/bars.svg'
@@ -7,9 +11,9 @@ import cross from '../../assets/cross.svg'
 import Avatar from '../../components/Avatar/Avatar'
 import './navbar.css'
 import '../../App.css'
+import { setCurrentUser } from '../../actions/currentUser'
 
 const Navbar = () => {
-    const User = "1"
     const openOptions = ()=>{
       document.getElementById("close-burger").style.display = 'block'
       document.getElementById("nav-burger-list").style.display = 'block'
@@ -20,6 +24,26 @@ const Navbar = () => {
       document.getElementById("nav-burger-list").style.display = 'none'
       document.getElementById("close-burger").style.display = 'none'
     }
+    const dispatch = useDispatch()
+    var User = useSelector((state) => (state.currentUserReducer))
+    const navigate = useNavigate();
+    
+    const handleLogout = () => {
+        dispatch({ type: 'LOGOUT'});
+        navigate('/')
+        dispatch(setCurrentUser(null))
+    }
+    
+    useEffect(() => {
+        const token = User?.token 
+        if(token){
+            const decodedToken = decode(token)
+            if(decodedToken.exp * 1000 < new Date().getTime()){
+                handleLogout()
+            }
+        }
+        dispatch(setCurrentUser( JSON.parse(localStorage.getItem('Profile'))))
+    },[User?.token, dispatch])
 
   return (
     <>
@@ -48,7 +72,7 @@ const Navbar = () => {
                   py='7px'
                   color= 'white'
                   borderRadius = '50%'> P </Avatar></Link> 
-                  <button className='nav-item nav-links'>Logout</button>
+                  <button className='nav-item nav-links' onClick={handleLogout}>Logout</button>
             </>
         }
       </div>
