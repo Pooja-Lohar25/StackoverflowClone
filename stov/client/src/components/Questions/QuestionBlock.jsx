@@ -1,32 +1,65 @@
 import React, { useState } from 'react'
-import {Link} from 'react-router-dom'
+import {Link,useLocation,useParams,  useNavigate} from 'react-router-dom'
 import DisplayAnswer from './DisplayAnswer'
 import up from '../../assets/caret-up.svg'
 import down from '../../assets/caret-down.svg'
+import Avatar from '../../components/Avatar/Avatar'
 import './displayQ.css'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { postAnswer, deleteQuestion, voteQuestion } from '../../actions/question'
+import moment from 'moment'
+import copy from 'copy-to-clipboard'
 
 const QuestionBlock = ({ques}) => {
+    const id  = ques
     const questionList = useSelector(state => state.questionsReducer)
     const question = questionList.data?.filter(quest => quest._id===ques)[0]
     
-    const [votes,setVotes]= useState(question?.upvotes)
+    const [Answer, setAnswer] = useState('')
+    const Navigate = useNavigate()
+    const dispatch = useDispatch()
+    const User = useSelector((state) => (state.currentUserReducer))
+    const location = useLocation()
+    const url = 'http://localhost:3000'
 
-    
-    const upvote = ()=>{
-        setVotes(votes+1)
+    const handlePostAns = (e, answerLength) =>{
+        e.preventDefault()
+        console.log(id)
+        if(User === null){
+            alert('Login or Signup to answer a question')
+            Navigate('/Auth')
+        }else{
+            if(Answer === ''){
+                alert('Enter an answer before submitting')
+            } else{
+                dispatch(postAnswer({ id, noOfAnswers: answerLength + 1, answerBody: Answer, userAnswered: User.result.name }))
+            }
+        }
     }
-    const downvote = ()=>{
-        setVotes(votes-1)
+    const handleShare = () => {
+        copy(url+location.pathname)
+        alert('Copied url : '+url+location.pathname)
     }
-  
+
+    const handleDelete = () => {
+        dispatch(deleteQuestion(id, Navigate))
+    }
+
+    const handleUpVote = () => {
+        dispatch(voteQuestion(id, 'upVote'))
+    }
+
+    const handleDownVote = () => {
+        dispatch(voteQuestion(id, 'downVote'))
+    }
+
     return (
     <div className='question-details-block'>
         <div className='row-1'>
             <div className='question-votes'>
-                <div><button onClick={upvote}><img src={up} /></button></div>
-                <div style={{'font-weight': "500" ,'font-size':'20px' , 'text-align':'center'}}>{votes}</div>
-                <div><button onClick={downvote}><img src={down}/></button></div>
+                <div><button onClick={handleUpVote}><img src={up} /></button></div>
+                <div style={{'font-weight': "500" ,'font-size':'20px' , 'text-align':'center'}}>{question.upVote.length - question.downVote.length}</div>
+                <div><button onClick={handleDownVote}><img src={down}/></button></div>
             </div>
             <div className='question-desc'>
                 <p>{question?.questionBody}</p>
@@ -40,7 +73,7 @@ const QuestionBlock = ({ques}) => {
             </div>
         </div>
         <div className='post-by'>
-            <span>asked on {question?.askedOn}
+            <span>asked {moment(question?.askedOn).fromNow()}
             </span><br/>
             <Link to={`/User/${question?.userId}`}>{question?.postedBy}</Link>
         </div>
@@ -56,9 +89,9 @@ const QuestionBlock = ({ques}) => {
         }
 
         <p style={{'margin-left':'20px'}}>Your Answer</p>
-        <form className='answer-block'>
-            <textarea type="text"/> 
-            <button className='quest-btn'>Post your answer</button>
+        <form className='answer-block' onSubmit={ (e) => { handlePostAns(e, question.answer.length) }}>
+            <textarea type="text"  onChange={(e)=> setAnswer(e.target.value)}/> 
+            <button  type = 'submit' className='quest-btn'>Post your answer</button>
         </form>
     </div>
     )
