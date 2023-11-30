@@ -12,6 +12,7 @@ import Avatar from '../../components/Avatar/Avatar'
 import './navbar.css'
 import '../../App.css'
 import { setCurrentUser } from '../../actions/currentUser'
+import { fetchAllQuestions } from '../../actions/question'
 
 const Navbar = () => {
     const openOptions = ()=>{
@@ -43,6 +44,7 @@ const Navbar = () => {
             }
         }
         dispatch(setCurrentUser( JSON.parse(localStorage.getItem('Profile'))))
+        dispatch(fetchAllQuestions())
     },[User?.token, dispatch])
 
   return (

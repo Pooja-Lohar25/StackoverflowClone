@@ -5,7 +5,7 @@ import Ques from "./Ques";
 const Questions = ({ questionlist }) => {
   return (
     <>
-      {questionlist.map((qst) => (
+      {questionlist?.map((qst) => (
         <Ques key={qst._id} quest={qst} />
       ))}
     </>

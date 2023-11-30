@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
 import {Link} from 'react-router-dom'
-import questionList from './questiondata'
 import DisplayAnswer from './DisplayAnswer'
 import up from '../../assets/caret-up.svg'
 import down from '../../assets/caret-down.svg'
 import './displayQ.css'
+import { useSelector } from 'react-redux'
 
 const QuestionBlock = ({ques}) => {
-    const question = questionList.filter(quest => quest._id===ques)[0]
+    const questionList = useSelector(state => state.questionsReducer)
+    const question = questionList.data?.filter(quest => quest._id===ques)[0]
     
-    const [votes,setVotes]= useState(question.upvotes)
+    const [votes,setVotes]= useState(question?.upvotes)
 
     
     const upvote = ()=>{
@@ -28,10 +29,10 @@ const QuestionBlock = ({ques}) => {
                 <div><button onClick={downvote}><img src={down}/></button></div>
             </div>
             <div className='question-desc'>
-                <p>{question.questionBody}</p>
+                <p>{question?.questionBody}</p>
                 <div className="tags">
                     {
-                        question.questionTags.map((tag)=>(
+                        question?.questionTags.map((tag)=>(
                             <p key={tag} style={{'font-size':"14px"}}>{tag}</p>
                         ))
                     }
@@ -39,17 +40,17 @@ const QuestionBlock = ({ques}) => {
             </div>
         </div>
         <div className='post-by'>
-            <span>asked on {question.askedOn}
+            <span>asked on {question?.askedOn}
             </span><br/>
-            <Link to={`/User/${question.userId}`}>{question.postedBy}</Link>
+            <Link to={`/User/${question?.userId}`}>{question?.postedBy}</Link>
         </div>
 
 
         {
-            question.noOfAns !==0 && (
+            question?.noOfAnswers !==0 && (
                 <section className='answers-section'>
-                    <h3>{question.noOfAns} answers</h3>
-                    <DisplayAnswer qid={question._id}/>
+                    <h3>{question?.noOfAnswers} answers</h3>
+                    <DisplayAnswer qid={question?._id}/>
                 </section>
             )
         }

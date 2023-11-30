@@ -4,13 +4,13 @@ import RightSidebar from '../RightSidebar/RightSidebar'
 import QuestionBlock from './QuestionBlock'
 import { useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
-import questionList from './questiondata'
 import './displayQ.css'
 import { useSelector } from 'react-redux'
 
 
 const DisplayQ = () => {
     const user = useSelector(state => state.currentUserReducer)
+    const questionList = useSelector(state => state.questionsReducer)
     const {qid}  = useParams() //use same variables as used in defining parameters for routes
     const navigate = useNavigate()
   
@@ -24,7 +24,7 @@ const DisplayQ = () => {
       }
     }
 
-    const question = questionList.filter(question => question._id===qid)[0]
+    const question = questionList?.data?.filter(question => question?._id===qid)[0]
   return (
     <div className='home-container-1' >
       <LeftSidebar/>
@@ -32,13 +32,13 @@ const DisplayQ = () => {
         <div className='question-bar'> 
             {
                 
-                <div className='question-title' key={question._id}>{question.questionTitle}</div>
+                <div className='question-title' key={question?._id}>{question?.questionTitle}</div>
               
             }
             <button onClick={redirect} className='quest-btn'>Ask Question</button>
         </div>
         <div className='question-info'>
-          <p> <span style={{color:"grey"}}>Asked : </span>{question.askedOn}</p>
+          <p> <span style={{color:"grey"}}>Asked : </span>{question?.askedOn}</p>
         </div>
         <QuestionBlock ques = {qid}/>
         <RightSidebar/>

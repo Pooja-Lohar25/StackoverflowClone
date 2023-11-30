@@ -11,7 +11,6 @@ const Askquest = () => {
   const [ questionTags, setQuestionTags ] = useState('')
 
   const User = useSelector((state) => (state.currentUserReducer))
-  console.log(User)
   const dispatch = useDispatch()
   const navigate = useNavigate()
   
