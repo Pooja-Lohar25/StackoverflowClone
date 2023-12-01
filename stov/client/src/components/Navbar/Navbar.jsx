@@ -68,7 +68,7 @@ const Navbar = () => {
             <Link to='/Auth' className='nav-item nav-links'>Login</Link> :
             <>
                 {/* first letter of user's name*/}
-                <Link to='/User' className='nav-item avatar'><Avatar 
+                <Link to={ `/Users/${User.result._id}` } className='nav-item avatar'><Avatar 
                   backgroundColor='#009dff'
                   px = '15px'
                   py='7px'
