@@ -78,3 +78,31 @@
     margin-left: 10px;
     cursor: pointer;
 }
+
+.change-avatar-btn{
+    float: right;
+    display: flex;
+    align-items: end;
+}
+.change-avatar-btn button{
+    background:transparent;
+    border: none;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    color: white;
+}
+.change-avatar-btn button:hover{
+    color: black;
+}
+
+.photo-upload-btn{
+    background-color: #0a95ff;
+    border: #0a95ff;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+}
+.photo-upload-btn:hover{
+    background-color: #0074cc;
+}

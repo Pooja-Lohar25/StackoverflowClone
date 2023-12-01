@@ -73,7 +73,7 @@ const Navbar = () => {
                   px = '15px'
                   py='7px'
                   color= 'white'
-                  borderRadius = '50%'> P </Avatar></Link> 
+                  borderRadius = '50%'> {User.result.name.charAt(0).toUpperCase()}</Avatar></Link> 
                   <button className='nav-item nav-links' onClick={handleLogout}>Logout</button>
             </>
         }
